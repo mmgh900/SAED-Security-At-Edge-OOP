@@ -14,19 +14,5 @@ https://arxiv.org/abs/2102.13367
 Architectural overview of SAED within the edge tier and (as part of the three-tier enterprise search service) is shown below. SAED provides semantic search via identifying the query context (Context Identifier module) and combining that with the user’s interests (Interest Detector module). Then, the Query Expansion module and the Weighting unit of SAED, respectively, incorporate the semantic and assure the relevancy of the results. Solid and dashed lines indicate the interactions from the user to the cloud tier and from the cloud tier to the user, respectively.
 <p align="center"><img src="archi.png"></p>
 
-## Running SAED on AWS Kendra
-### Dependencies
-Running SAED needs the following dependencies:
- ```python>=3.5```
- ```pyenchant==3.2.0```
- ```gensim==3.8.3```
- ```numpy==1.14.2```
- ```nltk==3.2.5```
- ```pywsd>=1.2.0```
- ```yake==0.4.6```
- ```wn>=0.0.19```
- ```six>=1.11.0```
- ```pandas>=0.22.0```
- 
-Please refer to Step #2 from the below instructions to install the dependencies.
+
 
