@@ -6,17 +6,6 @@ SAED is an open-source program that was developed at HPCC lab, University of Lou
 The research paper is also available on the arXiv repository:
 https://arxiv.org/abs/2102.13367
 
-Users of this open-source platform are requested to cite the following paper in their publications:
- ````
- @inproceedings{zobaedsaed2021,
-  title={SAED: Edge-Based Intelligence for Privacy-Preserving Enterprise Search on the Cloud},
-  author={Zobaed, Sakib M, and Amini Salehi, Mohsen and Buyya, Rajkumar}
-  booktitle={Proceedings of the 21st International Symposium on Cluster, Cloud, and Grid Computing},
-  series={CCGRID'21},
-  year={2021},
-  month={May}
-}
- ````
  
 ## Architecture
 
