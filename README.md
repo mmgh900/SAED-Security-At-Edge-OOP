@@ -39,31 +39,3 @@ Running SAED needs the following dependencies:
  
 Please refer to Step #2 from the below instructions to install the dependencies.
 
-### Step by step Instructions
-1. Clone the project on your machine via git clone.
-2. To install all the dependencies all at once, run command: ```pip install -r requirements.txt``` (Make sure ```python3``` is intalled and default OS is Linux). 
-3. Download pre-trained "GoogleNews-vectors-negative300.bin" W2V model from [here](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit).
-4. ```BBC``` dataset is available in zipped format in Dataset folder (demo query is considered from ```BBC``` dataset). In addition, the link for downloading RFC dataset is provided in ```Link for downloading RFC dataset.txt```. Note: here, we uploaded only the plain-text dataset for simplicity of the usage.
-5. Upload data in AWS storage (S3). Please check the [documentation](https://docs.aws.amazon.com/redshift/latest/dg/tutorial-loading-data-upload-files.html) for uploading dataset in AWS storage. To configure Kendra, please check the [documentation](https://docs.aws.amazon.com/kendra/latest/dg/setup.html) if necessary. Note: Once you configure Kendra, a search index will be created. You need to copy the Kendra index id from AWS to the ```config.ini``` file as explained in the next step.  
-6. Open ```config.ini``` file to provide the dataset name (BBC/RFC), W2V model location, AWS region, access key id, secret access key, and Kendra index id. We have already provided a demo query and user interest.     
-7. Run ```Context_detection_extended.py```. If it needs execution persmission, please provide that accordingly. Example: 
-   1. ```chmod a+x Context_detection_extended.py``` then,
-   1. ```python3 Context_detection_extended.py```
-8. An output file named as ```Weighted_query_"QUERY"_.txt``` will be formed. 
-9. Update ```config.ini``` file with the newly generated weighted query file. Note that, we have already provided a demo file based on the demo query and interest.
-10. We have provided an interface to facilitate search through AWS Kendra. Run ```Search_through_kendra.py```. If it needs execution persmission, please provide that accordingly. Before running the file, please check ```config.ini``` again and make sure that AWS related information have been provided correctly. Example: 
-    1. ```chmod a+x Search_through_kendra.py```
-    1. ```python3 Search_through_kendra.py```      
-11. After running the file, Cloud (AWS Kendra) outputted search result is saved in ```initial_ranking.csv``` file.
-12. Now, Ranking unit will be utilized to get the final search result. Run ```RankingUnit.py```. If it needs execution persmission, please provide that accordingly. Example: 
-    1. ```chmod a+x RankingUnit.py``` then,
-    1. ```python3 RankingUnit.py```
-13. The final search result will be shown in the terminal. 
-### Run SAED all-in-one 
-The above instructions are provided for step-by-step execution of SAED based on the provided architecture. However, if you want to run the whole thing in one step, after Step 6, just run ```./saed_all.sh```.    
-## SAED Running Instructions in the emulation mode (Without the need to configure AWS Kendra)
-If you do not have an AWS account, you can simply run SAED in the emulation mode for some prepared retrieved results. This is assuming that you have a resulted document set provided by a search system (e.g., AWS Kendra) for a given search query. A dummy output obtained from Kendra is provided in ```demo_initial_ranking.csv``` file. The search query and weighted query file are loaded in ```config.ini``` file as a default. To run SAED in the emulation mode, after Step 2 in the previous section, do the following steps:
-1. Run ```RankingUnit.py```. If it needs execution persmission, please provide that accordingly. Example: 
-   1. ```chmod a+x RankingUnit.py``` then,
-   2. ```python3 RankingUnit.py```
-2. The final search result will be shown in the terminal.
